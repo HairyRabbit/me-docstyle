@@ -677,5 +677,26 @@
         <p>那么就这些，下周再见！</p>
       </div>
     </section>
+
+
+    <script>
+      function toggleHeader(y) {
+      if (y > screen.height / 4) {
+      document.body.classList.add('header-folded')
+      setTimeout(function() {
+      document.body.classList.add('header-fixed')
+      }, 100)
+      } else {
+      document.body.classList.remove('header-folded')
+      document.body.classList.remove('header-fixed')
+      }
+      }
+      window.addEventListener('scroll', function () {
+      toggleHeader(window.scrollY)
+      }, false)
+
+
+    </script>
   </body>
+  
 </html>
