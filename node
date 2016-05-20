@@ -1,0 +1,14 @@
+// THIS IS DOGESCRIPT 
+
+/* 
+  Build Tool, wow
+*/ 
+
+"use strict";
+
+var gulp = require('gulp');
+var cli = require('gulp-cli');
+
+console.loge 1
+
+cli();

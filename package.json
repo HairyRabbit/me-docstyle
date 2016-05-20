@@ -1,0 +1,28 @@
+{
+  "name": "me-docstyle",
+  "version": "1.0.0",
+  "description": "nothing.",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "start": "gulp --gulpfile=builder"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuffiy/me-docstyle.git"
+  },
+  "author": "Yufi <yfhj1990@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yuffiy/me-docstyle/issues"
+  },
+  "homepage": "https://github.com/yuffiy/me-docstyle#readme",
+  "devDependencies": {
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-postcss": "^6.1.1",
+    "gulp-stylus": "^2.3.1",
+    "postcss-short": "^1.4.0"
+  }
+}

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../tmp/main.css">
     <script>
       /*
       window.addEventListener('scroll', () => {
@@ -16,46 +17,9 @@
   </head>
   <body>
     <style>
-      html, body { padding: 0; margin: 0; }
-      body {
-      font-size: 16px;
-      line-height: 1;
-      }
-
+      
       img {
       border: 0;
-      }
-      
-      .doc {
-      padding: 1rem;
-      
-      font-size: 17px;
-      line-height: 1.5;
-      font-weight: normal;
-      font-family: "Microsoft YaHei UI,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,Hiragino Sans GB,Hiragino Sans GB W3,sans-serif";
-      letter-spacing: 0.05em;
-      color: #232323;
-      }
-
-      
-      h1,h2,h3,h4,h5,h6,p {
-      font-size: 1em;
-      font-weight: normal;
-      font-style: normal;
-      margin: 0;
-      }
-
-      h1 {
-      display: none;
-      }
-
-      h2 {
-      margin-bottom: 2em;
-      }
-
-      
-      p {
-      margin-bottom: 1em;
       }
 
       /*
@@ -229,18 +193,22 @@
 
 
       .main {
-      padding-top: 450px; /*60px;*/
+      /*padding: 1rem;
+      padding-top: 450px; 60px;*/
+      height: 100%;
       }
 
       .main-frame {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
+      
+      height: 100%;
+      
       }
       
       .main-header {
       
       }
 
+      /*
       .main-header .avatar {
       transform-origin: left center 0px;
       padding-left: 2rem;      
@@ -253,22 +221,8 @@
       transform: scale(0.5) translate3d(0%, 0px, 0px);
       opacity: 0;
       }
-
+      */
       
-      .main-ctx {
-      text-align: center;
-      margin: 1rem 0;
-      }
-
-      .main-title {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      }
-
-      .main-small {
-      font-size: 0.8rem;
-      color: #555;
-      }
     </style>
 
     <section class="box box-user">
@@ -306,6 +260,7 @@
       </div>
     </section>
 
+    <!--
     <header class="header">
       <div class="header-avatar">
 	<div class="avatar">
@@ -313,36 +268,36 @@
 	</div>
       </div>
       <div class="header-title">
-	<span class="header-i">Blog () =></span>Hi.这里是兔子
+	<span class="header-i">Blog () =&gt;</span>Hi.这里是兔子
       </div>
     </header>
+    -->
 
+    <section class="main-frame">
+      <header class="main-header">
+	<div class="avatar avatar-2x">
+	  <img src="photo.jpg" />
+	</div>
+      </header>
+
+      <div class="main-ctx">
+	<header class="main-title">
+	  Hi.这里是兔子
+	</header>
+
+	<header class="main-small">
+	  - 初次见面 -
+	</header>
+      </div>
+      
+      <header class="main-continue">
+	<span>^</span>
+      </header>
+    </section>
     
     <section class="main">
-      <section class="main-frame">
-	<header class="main-header">
-	  <div class="avatar avatar-2x">
-	    <img src="photo.jpg" />
-	  </div>
-	</header>
-
-	<div class="main-ctx">
-	  <header class="main-title">
-	    Hi.这里是兔子
-	  </header>
-
-	  <header class="main-small">
-	    初次见面
-	  </header>
-	</div>
-	<header>
-	  
-	</header>
-      </section>
-
       
-	
-      <div class="doc">
+      <div class="typo">
 	<h1 id="hi-">Hi. 这里是兔子</h1>
         <p>年前为这个域名续了费，就想着怎么也得更新一下子，毕竟已经荒废两年多了。忙了一个多月的工作，又发生了许多的事情，到 3 月底终于鼓起勇气，恩，开更吧。其实吧，原由还有很多，认识了<span class="user">@mogu</span>大爷，然后掉进了了<span class="en-word">julia</span>的坑，然后不知怎么的就聊起了 elm。哦哦，那个我知道，其实我很早就在关注了，那时才刚刚出来，貌似是 0.10 的版本？不过由于工作忙，初次见面之后就那样了，第一印象就是 wtf……第二次见面是因为 redux。在 redux 的官网上看到了他的实现受到 elm 的影响，我才突然想起来，哦，我的天，他貌似比想象的要强大的多，同时版本也更新到了 0.12 左右。写了几个 demo 发现，太难了，和传统的逻辑思维根本不同，之后又弃在那里。又过去一年半的时间，对 FRP 编程慢慢有了些了解后再来折腾 elm，发现，啊！好像突然懂了什么。</p>
         <p>恩，还没有做自我介绍。我是兔子，一个 frontend developer，是个喜欢看书，喜欢编程，喜欢折腾各种奇怪的东西的女汉子。技术栈的话先不说出来，今后会在 blog 中慢慢提现的。那么现在，不如就聊聊这个 blog。</p>
