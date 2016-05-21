@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,13 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../tmp/main.css">
     <script>
-      /*
-      window.addEventListener('scroll', () => {
-      $('.header').style.display = 'block';
-      $('.header').style.visibility = 'visible';
-      $('.main-header').classList.add('active');
-      }, false)
-      */
     </script>
   </head>
   <body>
@@ -39,6 +33,7 @@
 
 
       /*component*/
+      /*
       .header {
       display: none;
       visibility: hidden;
@@ -79,7 +74,7 @@
       margin-top: -0.25rem;
       font-weight: bolder;
       }
-
+      */
 
       
 
@@ -192,22 +187,6 @@
 
 
 
-      .main {
-      /*padding: 1rem;
-      padding-top: 450px; 60px;*/
-      height: 100%;
-      }
-
-      .main-frame {
-      
-      height: 100%;
-      
-      }
-      
-      .main-header {
-      
-      }
-
       /*
       .main-header .avatar {
       transform-origin: left center 0px;
@@ -273,12 +252,30 @@
     </header>
     -->
 
-    <section class="main-frame">
+    <section class="frame">      
+      <div class="heart-anim">
+	<div class="heart heart-1">
+	  <img src="heart1.svg" />
+	</div>
+
+	<div class="heart-line"></div>
+
+	<!--
+	<div class="heart heart-2">
+	  <img src="heart2.svg" />
+	</div>
+	-->
+      </div>
+    </section>
+
+    <section class="main-frame" id="con">
+      <!--
       <header class="main-header">
 	<div class="avatar avatar-2x">
 	  <img src="photo.jpg" />
 	</div>
       </header>
+      
 
       <div class="main-ctx">
 	<header class="main-title">
@@ -289,6 +286,8 @@
 	  - 初次见面 -
 	</header>
       </div>
+
+      -->
       
       <header class="main-continue">
 	<span>^</span>
@@ -677,5 +676,31 @@
         <p>那么就这些，下周再见！</p>
       </div>
     </section>
+
+
+    <script>
+      var dom1 = '<header class="main-header"><div class="avatar avatar-2x"><img src="photo.jpg"></div></header>'
+
+      var dom2 = '<div class="main-ctx"><header class="main-title">Hi.这里是兔子</header><header class="main-small">初次见面</header></div>'
+
+      function pushDom() {
+      var con = document.getElementById('con')
+      var el1 = document.createElement('div')
+      var el2 = document.createElement('div')
+      el1.innerHTML = dom1
+      el2.innerHTML = dom2
+      con.appendChild(el1)
+      con.appendChild(el2)
+
+      requestAnimationFrame(function() {
+      el1.firstChild.classList.add('init')
+      el2.firstChild.classList.add('init')
+      })
+      
+      }
+      
+      requestAnimationFrame(pushDom)
+
+    </script>
   </body>
 </html>

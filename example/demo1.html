@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../tmp/main.css">
+    <script>
+    </script>
+  </head>
+  <body>
+    <style>
+      #demo {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      background-color: red;
+
+      position: sticky;
+      top: 0;
+      left: 0;
+      }
+      
+      body {
+      height: 30000px;
+      }
+    </style>
+
+    <div id="demo"></div>
+
+    <script>
+      function animate() {
+      requestAnimationFrame(function() {
+      var el = document.getElementById('demo')
+      var r = window.scrollY / 30000
+      el.style.left = r * screen.width + "px"
+      el.style.top = r * screen.height + "px"
+      //})
+      }
+      window.addEventListener('scroll', animate, false)
+    </script>
+  </body>
+</html>
