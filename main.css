@@ -208,6 +208,7 @@ body.aside-active .aside-bg {
 body.aside-active .main-frame,
 body.aside-active .main {
   filter: blur(3px);
+  -webkit-filter: blur(3px);
 }
 .aside-main {
   width: 100%;
