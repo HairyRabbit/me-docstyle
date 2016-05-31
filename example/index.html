@@ -204,6 +204,29 @@
       
     </style>
 
+    <section class="aside-trigger">
+      <div class="trigger"></div>
+    </section>
+
+    <div class="aside">
+      <div class="aside-bg"></div>
+      <div class="aside-main">
+	<header class="aside-header">
+	  <div class="avatar avatar-2x">
+	    <img src="logo.png" />
+	  </div>
+	  <div class="aside-intro">
+	    Did you feel me.
+	  </div>
+	</header>
+	<nav class="aside-nav"><ul class="nav">
+	    <li class="nav-item"><div class="menu">Home<span class="menu-symbol menu-symbol-brace">{</span><span class="menu-symbol menu-symbol-brace">}</span></div></li>
+	    <li class="nav-item"><div class="menu"><span class="menu-symbol menu-symbol-dollar">$</span>Notes</div></li>
+	    <li class="nav-item"><div class="menu">About<span class="menu-symbol menu-symbol-parentheses">(</span>me<span class="menu-symbol menu-symbol-parentheses">)</span></div></li>
+	</ul></nav>
+      </div>
+    </div>
+
     <section class="box box-user">
       <div class="box-user-avatar">
 	<div class="avatar avatar-border avatar-2x">
@@ -252,22 +275,6 @@
     </header>
     -->
 
-    <section class="frame">      
-      <div class="heart-anim">
-	<div class="heart heart-1">
-	  <img src="heart1.svg" />
-	</div>
-
-	<div class="heart-line"></div>
-
-	<!--
-	<div class="heart heart-2">
-	  <img src="heart2.svg" />
-	</div>
-	-->
-      </div>
-    </section>
-
     <section class="main-frame" id="con">
       <!--
       <header class="main-header">
@@ -288,10 +295,11 @@
       </div>
 
       -->
-      
+      <!--
       <header class="main-continue">
 	<span>^</span>
       </header>
+      -->
     </section>
     
     <section class="main">
@@ -676,12 +684,16 @@
         <p>那么就这些，下周再见！</p>
       </div>
     </section>
+    
 
 
     <script>
       var dom1 = '<header class="main-header"><div class="avatar avatar-2x"><img src="photo.jpg"></div></header>'
 
       var dom2 = '<div class="main-ctx"><header class="main-title">Hi.这里是兔子</header><header class="main-small">初次见面</header></div>'
+
+      var trigger = document.querySelector('.trigger')
+      var aside = document.querySelector('.aside')
 
       function pushDom() {
       var con = document.getElementById('con')
@@ -695,11 +707,18 @@
       requestAnimationFrame(function() {
       el1.firstChild.classList.add('init')
       el2.firstChild.classList.add('init')
+      trigger.classList.add('init')
       })
+
       
       }
       
       requestAnimationFrame(pushDom)
+
+      trigger.addEventListener('click', function() {
+      this.classList.toggle('active')
+      document.body.classList.toggle('aside-active')
+      })
 
     </script>
   </body>
