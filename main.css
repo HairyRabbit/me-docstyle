@@ -205,11 +205,6 @@ body.header-folded .main-small {
 body.aside-active .aside-bg {
   opacity: 1;
 }
-body.aside-active .main-frame,
-body.aside-active .main {
-  filter: blur(3px);
-  -webkit-filter: blur(3px);
-}
 .aside-main {
   width: 100%;
   position: absolute;
