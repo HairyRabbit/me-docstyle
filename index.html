@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="../tmp/main.css">
     <script>
     </script>
   </head>
@@ -206,6 +206,8 @@
 
     <section class="aside-trigger">
       <div class="trigger"></div>
+      <div class="trigger-snd"></div>
+      <div class="trigger-top"></div>
     </section>
 
     <div class="aside">
@@ -693,6 +695,8 @@
       var dom2 = '<div class="main-ctx"><header class="main-title">Hi.这里是兔子</header><header class="main-small">初次见面</header></div>'
 
       var trigger = document.querySelector('.trigger')
+      var trigger2 = document.querySelector('.trigger-snd')
+      var trigger3 = document.querySelector('.trigger-top')
       var aside = document.querySelector('.aside')
 
       function pushDom() {
@@ -708,6 +712,8 @@
       el1.firstChild.classList.add('init')
       el2.firstChild.classList.add('init')
       trigger.classList.add('init')
+      trigger2.classList.add('init')
+      trigger3.classList.add('init')
       })
 
       
