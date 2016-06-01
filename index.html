@@ -211,7 +211,7 @@
     </section>
 
     <!-- aside -->
-    <div class="aside">
+    <div class="aside hide">
       <div class="aside-bg"></div>
       <div class="aside-main">
 	<header class="aside-header">
@@ -231,7 +231,7 @@
     </div>
 
     <!-- aside-lv2 -->
-    <div class="comments">
+    <div class="comments hide">
       <div class="comments-bg"></div>
       <div class="comments-main">
 
@@ -358,7 +358,7 @@
       </div>
     </header>
     -->
-
+    <div class="main-contianer">
     <section class="main-frame" id="con">
       <!--
       <header class="main-header">
@@ -768,6 +768,7 @@
         <p>那么就这些，下周再见！</p>
       </div>
     </section>
+    </div>
     
 
 
@@ -780,6 +781,11 @@
       var trigger2 = document.querySelector('.trigger-snd')
       var trigger3 = document.querySelector('.trigger-top')
       var aside = document.querySelector('.aside')
+      var comments = document.querySelector('.comments')
+
+      var frame = document.querySelector('.main-frame')
+
+      frame.style.height = screen.availHeight + 'px'
 
       function pushDom() {
       var con = document.getElementById('con')
@@ -804,14 +810,30 @@
       requestAnimationFrame(pushDom)
 
       trigger.addEventListener('click', function() {
+      aside.classList.toggle('hide')
+      requestAnimationFrame(function() {
       this.classList.toggle('active')
       document.body.classList.toggle('aside-active')
+      }.bind(this))
       })
 
+      var timer = null
 
       trigger2.addEventListener('click', function() {
-      this.classList.toggle('active')
-      document.body.classList.toggle('comments-active')
+      if(!document.body.classList.contains('comments-active')) {
+      clearTimeout(timer)
+      comments.classList.remove('hide')
+      requestAnimationFrame(function() {
+      this.classList.add('active')
+      document.body.classList.add('comments-active')
+      }.bind(this))
+      } else {
+      this.classList.remove('active')
+      document.body.classList.remove('comments-active')
+      timer = setTimeout(function() {
+      comments.classList.add('hide')
+      }, 1000)
+      }
       })
 
     </script>
