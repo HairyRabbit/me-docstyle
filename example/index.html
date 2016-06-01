@@ -206,9 +206,12 @@
 
     <section class="aside-trigger">
       <div class="trigger"></div>
+      <div class="trigger-snd"></div>
+      <div class="trigger-top"></div>
     </section>
 
-    <div class="aside">
+    <!-- aside -->
+    <div class="aside hide">
       <div class="aside-bg"></div>
       <div class="aside-main">
 	<header class="aside-header">
@@ -224,6 +227,87 @@
 	    <li class="nav-item"><div class="menu"><span class="menu-symbol menu-symbol-dollar">$</span>Notes</div></li>
 	    <li class="nav-item"><div class="menu">About<span class="menu-symbol menu-symbol-parentheses">(</span>me<span class="menu-symbol menu-symbol-parentheses">)</span></div></li>
 	</ul></nav>
+      </div>
+    </div>
+
+    <!-- aside-lv2 -->
+    <div class="comments hide">
+      <div class="comments-bg"></div>
+      <div class="comments-main">
+
+	<div class="comments-item">
+	  <div class="comments-container">
+	    <div class="comments-user">
+	      <div class="comments-item-left">
+		<div class="avatar">
+		  <img src="photo.jpg" />
+		</div>
+	      </div>
+	      <div class="comments-item-right">
+		<h4>awesome!</h4>
+		<div>Apr, 21st 2016</div>
+		<div>Nodejs, ES6, D</div>
+	      </div>
+	    </div>
+	    
+	    <div class="comments-content">
+	      <p>awesome post awesome post awesome post awesome post</p>
+	    </div>
+	  </div>
+	</div><!-- item -->
+	
+	<div class="comments-item">
+	  <div class="comments-container">
+	    <div class="comments-user">
+	      <div class="comments-item-left">
+		<div class="avatar">
+		  <img src="photo.jpg" />
+		</div>
+	      </div>
+	      <div class="comments-item-right">
+		<h4>awesome!</h4>
+		<div>Apr, 21st 2016</div>
+		<div>Nodejs, ES6, D</div>
+	      </div>
+	    </div>
+	    
+	    <div class="comments-content">
+	      <div class="comments-reply">
+		<div>#1 @Rabbit => {</div>
+		<div class="reply">
+		  <h5>awesome!</h5>
+		  <p>awesome post awesome post awesome post awesome post</p>
+		</div>
+		<div>}</div>
+	      </div>
+	      <p>awesome post awesome post awesome post awesome post</p>
+	    </div>
+	  </div>
+	</div><!-- item -->
+
+
+	<div class="comments-item">
+	  <div class="comments-container">
+	    <div class="comments-user">
+	      <div class="comments-item-left">
+		<div class="avatar">
+		  <img src="photo.jpg" />
+		</div>
+	      </div>
+	      <div class="comments-item-right">
+		<h4>awesome!</h4>
+		<div>Apr, 21st 2016</div>
+		<div>Nodejs, ES6, D</div>
+	      </div>
+	    </div>
+	    
+	    <div class="comments-content">
+	      <p>awesome post awesome post awesome post awesome post</p>
+	    </div>
+	  </div>
+	</div><!-- item -->
+
+	
       </div>
     </div>
 
@@ -274,7 +358,7 @@
       </div>
     </header>
     -->
-
+    <div class="main-contianer">
     <section class="main-frame" id="con">
       <!--
       <header class="main-header">
@@ -684,6 +768,7 @@
         <p>那么就这些，下周再见！</p>
       </div>
     </section>
+    </div>
     
 
 
@@ -693,7 +778,14 @@
       var dom2 = '<div class="main-ctx"><header class="main-title">Hi.这里是兔子</header><header class="main-small">初次见面</header></div>'
 
       var trigger = document.querySelector('.trigger')
+      var trigger2 = document.querySelector('.trigger-snd')
+      var trigger3 = document.querySelector('.trigger-top')
       var aside = document.querySelector('.aside')
+      var comments = document.querySelector('.comments')
+
+      var frame = document.querySelector('.main-frame')
+
+      frame.style.height = screen.availHeight + 'px'
 
       function pushDom() {
       var con = document.getElementById('con')
@@ -708,6 +800,8 @@
       el1.firstChild.classList.add('init')
       el2.firstChild.classList.add('init')
       trigger.classList.add('init')
+      trigger2.classList.add('init')
+      trigger3.classList.add('init')
       })
 
       
@@ -716,8 +810,30 @@
       requestAnimationFrame(pushDom)
 
       trigger.addEventListener('click', function() {
+      aside.classList.toggle('hide')
+      setTimeout(function() {
       this.classList.toggle('active')
       document.body.classList.toggle('aside-active')
+      }.bind(this), 100)
+      })
+
+      var timer = null
+
+      trigger2.addEventListener('click', function() {
+      if(!document.body.classList.contains('comments-active')) {
+      clearTimeout(timer)
+      comments.classList.remove('hide')
+      setTimeout(function() {
+      this.classList.add('active')
+      document.body.classList.add('comments-active')
+      }.bind(this), 100)
+      } else {
+      this.classList.remove('active')
+      document.body.classList.remove('comments-active')
+      timer = setTimeout(function() {
+      comments.classList.add('hide')
+      }, 1000)
+      }
       })
 
     </script>

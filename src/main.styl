@@ -1,3 +1,6 @@
+.hide
+  display none
+
 *
   margin 0
   padding 0
@@ -252,7 +255,7 @@ typo-block-tag = "h1, h2, h3, h4, h5, h6, p"
   top 0
   left 0
   height 100%
-  transform translate3d(100%, 0, 0)
+  transform translate3d(-100%, 0, 0)
   //box-shadow 2px 0 2px #ddd
   //border-top-right-radius 50%
   //border-bottom-right-radius 50%
@@ -321,19 +324,27 @@ typo-block-tag = "h1, h2, h3, h4, h5, h6, p"
 // trigger
 .aside-trigger
   position fixed
-  bottom 2rem
-  left 2rem
+  bottom 1rem
+  left 1rem
   z-index 11
+  width 1.6rem
+  height 1.6rem
+
+  perspective: 5rem
 
 .trigger
-  position relative
+  position absolute
+  top 0
+  left 0
   width 1.6rem
   height 1.6rem
   border-radius 50%
   background-color rgb(170, 170, 170)
   display inline-block
+  will-change transform
   opacity 0
   transition all 0.6s ease-in-out 0.6s
+  z-index 2
 
   &.init
     opacity 1
@@ -344,6 +355,8 @@ typo-block-tag = "h1, h2, h3, h4, h5, h6, p"
     &:before
     &:after
       transform scale(3)
+      transform-style preserve-3d
+      backface-visibility hidden
       border-color rgba(170, 170, 170, 0)
   
   &:before
@@ -364,8 +377,150 @@ typo-block-tag = "h1, h2, h3, h4, h5, h6, p"
     transition all 0.6s ease-in-out 0.2s
 
     
-    
-    
-      
+.trigger-snd    
+  position absolute
+  top 0.3rem
+  left 0.3rem
+  width 1rem
+  height 1rem
+  background-color rgb(170, 170, 170)
+  display inline-block
+  z-index 1
+  opacity 0
+  transition opacity 0.6s ease-in-out 1s, transform 0.6s ease-in-out 0s
+  transform translate3d(0, 0, 0) rotate(0deg)
+  transform-style preserve-3d
+  backface-visibility hidden
 
+  &.init
+    opacity 1
+  &.active
+    background-color #A52A2A
+  body.aside-active &
+    transform translate3d(3rem, 0, 0) rotate(405deg)
+
+.trigger-top
+  position absolute
+  top 0.3rem
+  left 0.3rem
+  width 1rem
+  height 1rem
+  display inline-block
+  z-index 1
+  opacity 0
+  transition opacity 0.6s ease-in-out 1s, transform 0.6s ease-in-out 0s
+  transform translate3d(0, 0, 0) rotate(0deg)
+  transform-style preserve-3d
+  backface-visibility hidden
   
+  &:before
+  &:after
+    content ' '
+    position absolute
+    display inline-block
+    background-color rgb(170, 170, 170)
+    transform scale(1.5)
+    border-radius 50%
+  &:before
+    width 100%
+    height 1px
+    top 50%
+    left 0
+  &:after
+    width 1px
+    height 100%
+    top 0
+    left 50%
+
+  &.init
+    opacity 1
+  body.aside-active &
+    transform translate3d(0, -3rem, 0) rotate(405deg)
+
+
+
+
+// comments
+
+.comments
+  width 100%
+  height 100%
+  position fixed
+  top 0
+  left 0
+  z-index 10
+  overflow-x hidden
+  overflow-y auto
+  
+
+.comments-bg
+  position fixed
+  top 0
+  left 0
+  width 100%
+  height 100%
+  background-color rgba(255, 255, 255, 0.87)
+  filter blur(3px)
+  opacity 0
+  body.comments-active &
+    opacity 1
+
+.comments-main
+  perspective 800px
+  padding-bottom 6rem
+
+.comments-item
+  padding 1rem  
+  &-left
+  &-right
+    float left
+
+  &-left
+    width 5rem
+  &-right
+    width calc(100% - 6rem)
+
+  will-change transform
+  transform-style preserve-3d
+  backface-visibility hidden
+  transform translate3d(-100%, 0, 0)
+  transition all 0.6s ease-in-out 0s
+
+  body.comments-active &
+    transform translate3d(0, 0, 0)
+
+  &:nth-child(1)
+    transition-delay 0s
+  &:nth-child(2)
+    transition-delay 0.1s
+  &:nth-child(3)
+    transition-delay 0.2s
+
+.comments-user:after
+    content ' '
+    display table
+    clear both
+
+
+.comments-user
+  padding-bottom 0.5rem
+  position relative
+  &:before
+    content: ' '
+    display inline-block
+    position absolute
+    bottom 0
+    left 0
+    width 6rem
+    height 1px
+    background-color #ddd
+
+.comments-content
+  padding 0.5rem
+
+.comments-reply
+  margin-bottom 0.5rem  
+  font-size 0.8rem
+
+.reply
+  padding 0 1rem
