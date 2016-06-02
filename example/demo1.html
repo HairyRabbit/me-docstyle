@@ -40,5 +40,28 @@
       }
       window.addEventListener('scroll', animate, false)
     </script>
+
+    <script type="text/javascript">
+      (function(){
+      var p = {
+      url:location.href, 
+      desc:'', 
+      title:'', 
+      summary:'',
+      pics:'', 
+      flash: '',
+      site:'',
+      style:'201',
+      width:32,
+      height:32
+      };
+      var s = [];
+      for(var i in p){
+      s.push(i + '=' + encodeURIComponent(p[i]||''));
+      }
+      document.write(['<a class="qcShareQQDiv" href="http://connect.qq.com/widget/shareqq/index.html?',s.join('&'),'" target="_blank">QQ</a>'].join(''));
+      })();
+    </script>
+    <script src="http://connect.qq.com/widget/loader/loader.js" widget="shareqq" charset="utf-8"></script>
   </body>
 </html>

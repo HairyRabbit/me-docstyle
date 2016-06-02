@@ -524,3 +524,41 @@ typo-block-tag = "h1, h2, h3, h4, h5, h6, p"
 
 .reply
   padding 0 1rem
+
+
+
+
+// top-bar
+.topbar
+  max-height 3rem
+  position absolute
+  top -3rem
+  left 0
+  right 0
+  overflow hidden
+  &:after
+    content ' '
+    display table
+    clear both
+
+.topbar-cursor
+  content ' '
+  display inline-block
+  position absolute
+  width 1.2rem
+  height 1.2rem
+  top 50%
+  left 0
+  margin-top -0.6rem
+  background-color rgba(170, 170, 170, 0.8)
+  border-radius 50%
+
+.topbar-item
+  width: 33.3333%
+  text-align center
+  padding 1rem
+  float left
+  color #ddd
+
+  &.active
+    color #000

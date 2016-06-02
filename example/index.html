@@ -204,6 +204,13 @@
       
     </style>
 
+    <div class="topbar">
+      <div class="topbar-item">HOME</div>
+      <div class="topbar-item">BLOG</div>
+      <div class="topbar-item">ABOUT</div>
+      <div class="topbar-cursor"></div>
+    </div>
+
     <section class="aside-trigger">
       <div class="trigger"></div>
       <div class="trigger-snd"></div>
@@ -785,7 +792,7 @@
 
       var frame = document.querySelector('.main-frame')
 
-      frame.style.height = screen.availHeight + 'px'
+      frame.style.height = screen.height + 'px'
 
       function pushDom() {
       var con = document.getElementById('con')
@@ -834,6 +841,91 @@
       comments.classList.add('hide')
       }, 1000)
       }
+      })
+
+
+      var start = 0
+      var moved = 0
+
+      var cursor = document.querySelector('.topbar-cursor')
+      
+      document.addEventListener('touchstart', function(evt) {
+      start = evt.changedTouches[0].pageY
+      this.body.style.transition = ''
+      })
+
+      document.addEventListener('touchmove', function(evt) {      
+      var y = evt.changedTouches[0].pageY - start
+      
+      var x = evt.changedTouches[0].pageX
+      var mx = screen.width - 1.2 * 16
+      
+      x = Math.max(0, x)
+      x = Math.min(mx, x)
+
+      cursor.style.transform = 'translate3d('+(x + 'px')+',0,0)'
+
+      var idx = (function() {
+      var flag = x / mx * 100
+      switch(true) {
+      case flag > 66.6667:
+      return 2;
+      case flag > 33.3333:
+      return 1;
+      default:
+      return 0;
+      }
+      })()
+
+      var items = [].slice.call(document.querySelectorAll('.topbar-item'))
+
+      items.forEach(function(n) { n.classList.remove('active') })
+      items[idx].classList.add('active')
+      
+      //console.log(x, idx)
+      
+      if(y < 0 || window.scrollY > 0) return
+	moved = y
+      this.body.style.transform = 'translate3d(0,' + (y + 'px') + ',0)'
+      })
+
+
+
+	var cursorTimer = null
+	
+      document.addEventListener('touchend', function(evt) {
+	
+
+	if(moved && window.scrollY >= moved) {
+	window.scrollTo(0, window.scrollY - moved)
+	this.body.style.transform = 'translate3d(0,0,0)'
+	moved = 0
+	return
+	}
+
+	start = 0
+	
+	this.body.style.transform = 'translate3d(0,0,0)'
+	this.body.style.transition = 'transform 0.4s ease-out'
+	
+	setTimeout(function() {
+	this.body.style.transform = ''
+	this.body.style.transition = ''
+	}.bind(this), 500)
+
+
+
+	clearTimeout(cursorTimer)
+	cursor.style.transform = cursor.style.transform + 'scale(6)'
+	cursor.style.opacity = 0
+	cursor.style.transition = 'all 0.4s ease-in-out 0s'
+
+	cursorTimer = setTimeout(function() {
+	cursor.style.transform = cursor.style.transform
+	cursor.style.opacity = 1
+	cursor.style.transition = ''
+	}, 500)
+
       })
 
     </script>
