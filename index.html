@@ -874,7 +874,8 @@
       return 1;
       default:
       var windowSize = "width=" + window.innerWidth + ",height=" + window.innerHeight + ",scrollbars=no";
-      window.open('http://www.google.com', 'popup', windowSize);
+      var bar = window.open('http://www.baidu.com', 'popup', windowSize);
+      console.log(bar)
       return 0;
       }
       })()
