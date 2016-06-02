@@ -873,6 +873,8 @@
       case flag > 33.3333:
       return 1;
       default:
+      var windowSize = "width=" + window.innerWidth + ",height=" + window.innerHeight + ",scrollbars=no";
+      window.open('http://www.google.com', 'popup', windowSize);
       return 0;
       }
       })()
